@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="js/theme.js"></script>
+  <title>Admin Records | Sagar Classes</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="images/logo.jpeg">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="app-container">
+
+  <script src="js/layout.js" data-part="nav"></script>
+
+  <main class="main-content">
+
+    <div class="notice-card sticky-notice">
+      <span class="notice-tag"><i class="ri-megaphone-fill"></i> NOTICE</span>
+      <div class="ticker"><span class="ticker-text">🎓 Admissions are open for the 2026–27 academic year. Enquire today!</span></div>
+    </div>
+
+    <section id="admin" class="view active">
+
+      <!-- ===== Sign In ===== -->
+      <div id="loginView" class="adm-login" hidden>
+        <form id="loginForm" class="adm-login-card" autocomplete="on">
+          <h3 class="admin-title"><i class="ri-lock-password-fill tone-gold"></i> Admin Sign In</h3>
+          <p class="adm-muted">Sign in to manage Sagar Classes records.</p>
+          <label>Username<input class="pill-input" id="loginUser" name="username" autocomplete="username" required></label>
+          <label>Password<input class="pill-input" id="loginPass" name="password" type="password" autocomplete="current-password" required></label>
+          <p id="loginError" class="adm-error" role="alert" hidden></p>
+          <button type="submit" class="btn adm-login-btn">Sign In</button>
+          <a class="btn btn-soft adm-login-back" href="index.html">Return to Home</a>
+        </form>
+      </div>
+
+      <!-- ===== Admin app (shown after login) ===== -->
+      <div id="adminApp" hidden>
+        <div class="admin-header-box">
+          <h3 class="admin-title">
+            <i class="ri-shield-user-fill tone-gold"></i> Sagar Classes | Administration
+          </h3>
+          <div class="adm-head-actions">
+            <button type="button" class="btn btn-soft" id="btnAllExcel"><i class="ri-file-excel-2-fill tone-green"></i> Export All Records (Excel)</button>
+            <button type="button" class="btn btn-soft" id="btnLogout"><i class="ri-logout-box-r-fill tone-red"></i> Logout</button>
+            <a class="btn btn-soft admin-back-btn" href="index.html"><i class="ri-corner-up-left-fill tone-indigo"></i> Home</a>
+          </div>
+        </div>
+
+        <div class="admin-stats-grid" id="statsGrid"></div>
+
+        <div class="admin-nav" id="adminTabs"></div>
+        <section class="adm-panel" id="adminPanel"></section>
+      </div>
+
+      <noscript><div class="admin-note">JavaScript is required for the admin panel.</div></noscript>
+
+    </section>
+  </main>
+</div>
+
+<script src="js/layout.js" data-part="footer"></script>
+
+<script src="js/store.js" defer></script>
+<script src="js/admin.js" defer></script>
+</body>
+</html>

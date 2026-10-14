@@ -1,0 +1,15 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  # Prometheus monitors itself
+  - job_name: prometheus
+    static_configs:
+      - targets: ['localhost:9090']
+
+  # Sagar Classes backend (service name from docker-compose.yml)
+  - job_name: sagar-backend
+    metrics_path: /metrics
+    static_configs:
+      - targets: ['backend:3000']

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="js/theme.js"></script>
+  <title>Staff Attendance | Sagar Classes</title>
+  <link rel="icon" href="images/logo.jpeg">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="app-container">
+
+  <script src="js/layout.js" data-part="nav"></script>
+
+  <main class="main-content">
+
+    <div class="notice-card sticky-notice">
+      <span class="notice-tag"><i class="ri-megaphone-fill"></i> NOTICE</span>
+      <div class="ticker"><span class="ticker-text">🎓 Admissions are open for the 2026–27 academic year. Enquire today!</span></div>
+    </div>
+
+    <section id="staffAttendancePortal" class="view active">
+      <div class="section-header-box">
+        <div>
+          <h2 class="section-title">
+            <i class="ri-calendar-check-fill tone-green"></i> Staff Attendance Portal
+          </h2>
+          <p class="section-sub">Select your name, choose your attendance status, and submit the form.</p>
+        </div>
+      </div>
+      <div class="student-login-card staff-login-card">
+        <div class="student-login-head">
+          <div class="attendance-login-single-icon staff" aria-hidden="true"><i class="ri-user-star-fill"></i></div>
+          <h3>Staff Attendance</h3>
+          <p>Only staff members registered by the institute can submit attendance.</p>
+        </div>
+        <form class="student-login-fields" data-api="/api/public/attendance/staff" data-people="staff">
+          <img class="person-preview is-logo" src="images/logo.jpeg" alt="Selected staff member">
+          <div>
+            <label class="form-label" for="t-person"><i class="ri-user-star-fill"></i> Staff Name</label>
+            <select id="t-person" name="person_id" class="pill-input" required><option value="">Loading…</option></select>
+          </div>
+          <div>
+            <label class="form-label" for="t-date"><i class="ri-calendar-2-fill"></i> Date</label>
+            <input type="date" id="t-date" name="date" class="pill-input" required>
+          </div>
+          <div class="status-choice">
+            <input type="radio" name="status" id="t-present" value="Present" required>
+            <label for="t-present" class="choice-present"><i class="ri-check-fill"></i> Present</label>
+            <input type="radio" name="status" id="t-absent" value="Absent">
+            <label for="t-absent" class="choice-absent"><i class="ri-close-fill"></i> Absent</label>
+          </div>
+          <button type="submit" class="btn btn-soft" block-btn>
+            <i class="ri-send-plane-2-fill tone-green"></i> Submit Attendance
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="js/layout.js" data-part="footer"></script>
+
+<script src="js/store.js" defer></script>
+<script src="js/script.js" defer></script>
+</body>
+</html>

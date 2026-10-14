@@ -1,0 +1,39 @@
+services:
+  backend:
+    build: ./backend
+    container_name: sagar-backend
+    restart: unless-stopped
+    environment:
+      PORT: 3000
+    ports:
+      - "127.0.0.1:3000:3000"      # only reachable from this machine
+    networks: [sagar-net]
+
+  frontend:
+    build: ./frontend
+    container_name: sagar-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "8081:80"                  # website -> http://localhost:8081
+    networks: [sagar-net]
+
+  prometheus:
+    image: prom/prometheus:v2.55.1
+    container_name: sagar-prometheus
+    restart: unless-stopped
+    depends_on:
+      - backend
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+    ports:
+      - "9091:9090"                # Prometheus UI -> http://localhost:9091
+    networks: [sagar-net]
+
+networks:
+  sagar-net:
+
+volumes:
+  prometheus-data:
